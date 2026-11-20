@@ -36,8 +36,7 @@ def render_event_markup(item) -> str:
 def thread_plugin_data(item) -> dict:
     return {
         "pysoc_events": {
-            "source_id": getattr(item, "source_id", None)
-            or getattr(getattr(item, "source", None), "id", None),
+            "source_id": getattr(item, "source_id", None) or getattr(getattr(item, "source", None), "id", None),
             "canonical_url": item.canonical_url,
             "external_id": item.external_id,
         }

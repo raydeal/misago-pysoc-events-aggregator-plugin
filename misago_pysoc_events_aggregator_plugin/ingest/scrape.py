@@ -29,11 +29,7 @@ def _node_url(node, base_url: str) -> str:
 def _node_datetime(node) -> str:
     if node is None:
         return ""
-    return (
-        node.attributes.get("datetime")
-        or node.attributes.get("content")
-        or _node_text(node)
-    )
+    return node.attributes.get("datetime") or node.attributes.get("content") or _node_text(node)
 
 
 def parse_html_listing(

@@ -1,4 +1,4 @@
-# PySoc events aggregator plugin
+# misago-pysoc-events-aggregator-plugin
 
 ![Test workflow](https://github.com/raydeal/misago-pysoc-events-aggregator-plugin/actions/workflows/tests.yml/badge.svg)
 [![Coverage Status](https://coveralls.io/repos/github/raydeal/misago-pysoc-events-aggregator-plugin/badge.svg?branch=main)](https://coveralls.io/github/raydeal/misago-pysoc-events-aggregator-plugin?branch=main)
@@ -73,7 +73,7 @@ Duplicate events are skipped using a unique `(source, external_id)` key (RSS GUI
 ## Tests
 
 ```bash
-pip install -e ".[dev]"
+pip install -e ".[test]"
 pytest
 ```
 

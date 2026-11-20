@@ -37,9 +37,7 @@ class Command(BaseCommand):
             except Exception as exc:
                 source.last_error = str(exc)[:4000]
                 source.save(update_fields=["last_error", "updated_at"])
-                self.stderr.write(
-                    self.style.ERROR(f"{source.name}: {exc}")
-                )
+                self.stderr.write(self.style.ERROR(f"{source.name}: {exc}"))
                 continue
 
             if result.get("skipped"):
@@ -49,8 +47,7 @@ class Command(BaseCommand):
             created_total += result["created"]
             events_total += result["events"]
             self.stdout.write(
-                f"{source.name}: {result['events']} events, "
-                f"{result['created']} new, {result['seen']} already known"
+                f"{source.name}: {result['events']} events, {result['created']} new, {result['seen']} already known"
             )
 
         if dry_run:

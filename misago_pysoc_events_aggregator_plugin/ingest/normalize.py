@@ -54,7 +54,9 @@ def normalize_event(
         external_id=external_id[:512],
         title=title[:255],
         canonical_url=canonical_url[:2048],
-        description=html_to_text(description) if description and "<" in description else collapse_whitespace(description),
+        description=html_to_text(description)
+        if description and "<" in description
+        else collapse_whitespace(description),
         starts_at=starts_at,
         location=collapse_whitespace(location),
         payload=payload or {},

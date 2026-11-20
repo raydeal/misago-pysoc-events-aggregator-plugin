@@ -3,8 +3,9 @@ from __future__ import annotations
 from django.db import transaction
 from django.db.models import F
 
-from ..models import IngestedItem
 from misago_pysoc_events_aggregator_plugin.tests.settings import get_category_id, get_poster_id
+
+from ..models import IngestedItem
 from .markup import render_event_markup, thread_plugin_data
 
 
@@ -77,9 +78,7 @@ def publish_item(item: IngestedItem):
 
 
 def publish_pending_items(*, limit: int | None = None) -> dict:
-    queryset = IngestedItem.objects.filter(
-        status=IngestedItem.Status.PENDING
-    ).select_related("source")
+    queryset = IngestedItem.objects.filter(status=IngestedItem.Status.PENDING).select_related("source")
     if limit is not None:
         queryset = queryset[:limit]
 
