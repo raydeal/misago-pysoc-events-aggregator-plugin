@@ -13,29 +13,30 @@ readme = "README.md"
 license = { file = "LICENSE" }
 requires-python = ">=3.12"
 dependencies = [
+    "Django~=5.2",
     "feedparser",
     "httpx",
     "python-dateutil",
-    "selectolax",
-]
-classifiers = [
-    "Development Status :: 4 - Beta",
-    "Intended Audience :: Developers",
-    "License :: OSI Approved :: GNU General Public License v2 (GPLv2)",
-    "Operating System :: OS Independent",
-    "Programming Language :: Python",
-    "Programming Language :: Python :: 3.12",
-    "Topic :: Internet :: WWW/HTTP :: Dynamic Content :: Message Boards",
+    "selectolax>=1.0",
 ]
 
 [project.optional-dependencies]
-dev = [
+test = [
+    "coveralls",
     "pytest",
+    "pytest-cov",
+    "pytest-django",
+    "ruff",
 ]
 
-[tool.hatch.build]
-include = ["misago_pysoc_events_aggregator_plugin/**"]
-
 [tool.pytest.ini_options]
-testpaths = ["tests"]
-pythonpath = ["."]
+DJANGO_SETTINGS_MODULE = "misago_pysoc_events_aggregator_plugin.tests.settings"
+python_files = ["test_*.py", "*_test.py"]
+addopts = ["--strict-markers", "--strict-config"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]

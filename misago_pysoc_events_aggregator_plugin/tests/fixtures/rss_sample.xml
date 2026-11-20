@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Python events</title>
+    <link>https://example.com/events</link>
+    <item>
+      <title>Django meetup</title>
+      <link>https://example.com/events/django</link>
+      <guid>https://example.com/events/django</guid>
+      <description>Come hang out with Django people.</description>
+      <pubDate>Mon, 01 Jan 2024 12:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>PySoc evening</title>
+      <link>https://example.com/events/pysoc</link>
+      <guid>pysoc-evening-1</guid>
+      <description>&lt;p&gt;Board games and Python.&lt;/p&gt;</description>
+      <pubDate>Tue, 02 Jan 2024 18:30:00 GMT</pubDate>
+    </item>
+  </channel>
+</rss>
